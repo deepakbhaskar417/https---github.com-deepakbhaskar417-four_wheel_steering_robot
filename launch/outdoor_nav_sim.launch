@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- The map file that we are going to use -->
+    <arg name="map_file" default="$(find keyboard_control)/maps/test.yaml"/>
+    
+  <!-- Run map_serserver to provide map -->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- Launch robot_localization and navsat node-->
+    <include file="$(find outdoor_waypoint_nav)/launch/include/localization_run_sim.launch"/>
+
+  <!-- Run rviz -->
+   <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find outdoor_waypoint_nav)/rviz_config/model.rviz" /> -->
+
+  <!-- Run husky_navigation to start move_base -->
+    <include file ="$(find test_description)/launch/move_base.launch"/>
+
+  <!-- launch safety node to allow the user to disable velocity commands to the robot -->
+  <include file="$(find outdoor_waypoint_nav)/launch/include/safety_node.launch" />
+
+</launch>

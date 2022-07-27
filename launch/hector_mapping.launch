@@ -1,0 +1,21 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro $(find test_description)/urdf/test.xacro"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model test"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="true"/>
+     <arg name="world_name" value= "$(find test_description)/world/myworld.world"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+  <rosparam file="$(find test_description)/config/gazebo_ros_control_params.yaml" command="load"/>
+  <!-- to start odometry publishing from gazebo using prewritten script -->
+<param name="publish_odom_tf" type="bool" value="false"/>
+<include file="$(find odom_publisher)/launch/start_odom.launch"/>
+<!-- load robot controller -->
+<include file="$(find test_description)/launch/controller.launch"/>
+<node name="fwd_controller" pkg="test_description" type="fw_steering.py" output="screen"/>
+<include file="$(find hector_slam_launch)/launch/tutorial.launch"/>
+</launch>
+

@@ -1,0 +1,38 @@
+<launch>
+ <!-- Transformation Configuration ... Setting Up the Relationships Between Coordinate Frames -->
+  <!--<node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link_broadcaster" args="-0.9 0 0.195 0 0 0 base_footprint base_link 30" />-->
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_gps" args="0.0 0 0.0 0 0 0 base_link gps 30" />
+  <!--<node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0 0.0 0 0 0 map odom 50" />-->
+  <!-- Launch RViz -->
+  <include file="$(find test_description)/launch/display.launch">
+     <arg name="model" value="$(find test_description)/urdf/test.xacro"/>
+     <arg name="rvizconfig" value="$(find test_description)/rviz/gps_navigation.rviz"/>
+  </include>
+  
+<!-- Move Base Node -->
+  <!-- Subscribe: /tf, /map, /scan, /odom, /move_base_simple/goal -->
+  <!-- Publish: /cmd_vel -->
+
+   <remap from="cmd_vel" to="/cmd_vel"/>
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find test_description)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find test_description)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find test_description)/param/local_costmap_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find test_description)/param/global_costmap_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find test_description)/param/base_local_planner_params.yaml" command="load" />
+      <!-- Here we load our costmap conversion settings -->
+     <param name="TebLocalPlannerROS/include_costmap_obstacles" value="False" />
+      <param name="TebLocalPlannerROS/include_dynamic_obstacles" value="True" />
+      <param name="base_global_planner" value="navfn/NavfnROS" />
+      <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+     
+       <!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
+      <param name="controller_frequency" value="5.0" />
+      <param name="controller_patience" value="15.0" />
+      <remap from="map" to="/map"/>
+  <!-- not sure whether needed or not. added to avoid in-place rotation-->
+    <param name="clearing_roatation_allowed" value="true"/> <!-- Our carlike robot is not able to rotate in place -->
+    
+  </node>
+
+</launch>

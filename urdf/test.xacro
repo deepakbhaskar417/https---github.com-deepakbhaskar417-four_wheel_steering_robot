@@ -1,0 +1,476 @@
+<?xml version="1.0" ?>
+<robot name="test" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find test_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find test_description)/urdf/test.trans" />
+<xacro:include filename="$(find test_description)/urdf/test.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.27907669705389315 0.004543957454179157 0.5481392725711673" rpy="0 0 0"/>
+    <mass value="52.47936542791792"/>
+    <inertia ixx="8.400261" iyy="19.090038" izz="24.375143" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear_left_steer_1">
+  <inertial>
+    <origin xyz="5.76926062478833e-10 0.008688062682560949 -0.10754836041765278" rpy="0 0 0"/>
+    <mass value="1.4415913875076642"/>
+    <inertia ixx="0.005135" iyy="0.002809" izz="0.003058" ixy="-0.0" iyz="0.000281" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.65 -0.6 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/rear_left_steer_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.65 -0.6 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/rear_left_steer_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_left_wheel_1">
+  <inertial>
+    <origin xyz="-8.548717289613705e-15 0.0050000000000000044 2.7755575615628914e-17" rpy="0 0 0"/>
+    <mass value="5.694847892477786"/>
+    <inertia ixx="0.1" iyy="0.1" izz="0.1" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.65 -0.7 -0.195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/back_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.65 -0.7 -0.195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/back_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_right_steer_v1_1">
+  <inertial>
+    <origin xyz="-3.963726680211721e-07 -0.008688062682560838 -0.10754836041765281" rpy="0 0 0"/>
+    <mass value="1.441591387507664"/>
+    <inertia ixx="0.005135" iyy="0.002809" izz="0.003058" ixy="0.0" iyz="-0.000281" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.945027 0.6 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_right_steer_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.945027 0.6 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_right_steer_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_left_steer_v1_1">
+  <inertial>
+    <origin xyz="-3.963726680211721e-07 0.008688062682560949 -0.10754836041765278" rpy="0 0 0"/>
+    <mass value="1.4415913875076642"/>
+    <inertia ixx="0.005135" iyy="0.002809" izz="0.003058" ixy="-0.0" iyz="0.000281" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.945027 -0.6 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_left_steer_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.945027 -0.6 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_left_steer_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear_right_steer_1">
+  <inertial>
+    <origin xyz="5.769259514565306e-10 -0.008688062682560838 -0.10754836041765281" rpy="0 0 0"/>
+    <mass value="1.441591387507664"/>
+    <inertia ixx="0.005135" iyy="0.002809" izz="0.003058" ixy="0.0" iyz="-0.000281" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.65 0.6 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/rear_right_steer_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.65 0.6 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/rear_right_steer_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_right_wheel_1">
+  <inertial>
+    <origin xyz="-8.548717289613705e-15 -0.0050000000000000044 2.7755575615628914e-17" rpy="0 0 0"/>
+    <mass value="5.694847892477786"/>
+    <inertia ixx="0.1" iyy="0.1" izz="0.1" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.65 0.7 -0.195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/back_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.65 0.7 -0.195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/back_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_right_wheel_1">
+  <inertial>
+    <origin xyz="-3.969496025213459e-07 -0.0050000000000000044 2.7755575615628914e-17" rpy="0 0 0"/>
+    <mass value="5.694847892477786"/>
+    <inertia ixx="0.1" iyy="0.1" izz="0.1" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.945027 0.7 -0.195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.945027 0.7 -0.195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_left_wheel_1">
+  <inertial>
+    <origin xyz="-3.969496025213459e-07 0.0050000000000000044 2.7755575615628914e-17" rpy="0 0 0"/>
+    <mass value="5.694847892477786"/>
+    <inertia ixx="0.1" iyy="0.1" izz="0.1" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.945027 -0.7 -0.195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.945027 -0.7 -0.195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_body_1">
+  <inertial>
+    <origin xyz="-7.771561172376096e-16 0.4000000000000011 0.34999999999999787" rpy="0 0 0"/>
+    <mass value="4.886243839999937"/>
+    <inertia ixx="0.692055" iyy="0.434591" izz="0.511172" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.91 0.4 -0.55" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.91 0.4 -0.55" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/front_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="container_1">
+  <inertial>
+    <origin xyz="-0.6200000000000001 5.30823647993313e-15 0.1622527283170584" rpy="0 0 0"/>
+    <mass value="37.30475520000019"/>
+    <inertia ixx="6.309048" iyy="8.504044" izz="12.759517" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.4 -0.0 -0.7" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/container_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.4 -0.0 -0.7" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/container_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link2_1">
+  <inertial>
+    <origin xyz="-0.10694805745507163 0.10992529567155462 -0.3617168651214172" rpy="0 0 0"/>
+    <mass value="4.1711800597770425"/>
+    <inertia ixx="0.01" iyy="0.010" izz="0.010" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.57 -0.6 -1.002" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.57 -0.6 -1.002" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper_1">
+  <inertial>
+    <origin xyz="-1.700029006457271e-14 0.0569430349761757 -0.010000000000000231" rpy="0 0 0"/>
+    <mass value="1.0360353996706142"/>
+    <inertia ixx="0.005074" iyy="0.009366" izz="0.014371" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.051 -0.855 -0.527" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/gripper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.051 -0.855 -0.527" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/gripper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link1_1">
+  <inertial>
+    <origin xyz="-1.1102230246251565e-16 -0.022997178388872053 -0.37641985967462666" rpy="0 0 0"/>
+    <mass value="2.146073295804804"/>
+    <inertia ixx="0.018306" iyy="0.011609" izz="0.007961" ixy="0.0" iyz="0.00497" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.55 -0.5 -1.441" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.55 -0.5 -1.441" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-4.889844085198547e-11 0.0 0.017725413958288305" rpy="0 0 0"/>
+    <mass value="0.596471666675333"/>
+    <inertia ixx="0.000414" iyy="0.000322" izz="0.000575" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.91 -0.0 -1.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.91 -0.0 -1.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="-5.216553654319167e-09 0.012499999999999956 0.0" rpy="0 0 0"/>
+    <mass value="0.10799999999999998"/>
+    <inertia ixx="2e-05" iyy="2.9e-05" izz="2e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.014495 -0.5 -0.415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.014495 -0.5 -0.415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_1">
+  <inertial>
+    <origin xyz="1.0142331718920872e-07 0.0 0.0014999999999999458" rpy="0 0 0"/>
+    <mass value="0.0064800000000000005"/>
+    <inertia ixx="1e-06" iyy="0.0" izz="1e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.40203 -0.0 -0.505" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.40203 -0.0 -0.505" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://test_description/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="rear_left_steering_joint" type="revolute">
+  <origin xyz="-0.65 0.6 0.325" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rear_left_steer_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit effort="100" lower="-1.56" upper="1.56" velocity="10"/>
+</joint>
+
+<joint name="rear_left_wheel_joint" type="continuous">
+  <origin xyz="0.0 0.1 -0.13" rpy="0 0 0"/>
+  <parent link="rear_left_steer_1"/>
+  <child link="back_left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="front_right_steering_joint" type="revolute">
+  <origin xyz="0.945027 -0.6 0.325" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_right_steer_v1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit effort="100" lower="-1.56" upper="1.56" velocity="10"/>
+</joint>
+
+<joint name="front_left_steering_joint" type="revolute">
+  <origin xyz="0.945027 0.6 0.325" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_left_steer_v1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit effort="100" lower="-1.56" upper="1.56" velocity="10"/>
+</joint>
+
+<joint name="rear_right_steering_joint" type="revolute">
+  <origin xyz="-0.65 -0.6 0.325" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rear_right_steer_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit effort="100" lower="-1.56" upper="1.56" velocity="10"/>
+</joint>
+
+<joint name="rear_right_wheel_joint" type="continuous">
+  <origin xyz="0.0 -0.1 -0.13" rpy="0 0 0"/>
+  <parent link="rear_right_steer_1"/>
+  <child link="back_right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="front_right_wheel_joint" type="continuous">
+  <origin xyz="0.0 -0.1 -0.13" rpy="0 0 0"/>
+  <parent link="front_right_steer_v1_1"/>
+  <child link="front_right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="front_left_wheel_joint" type="continuous">
+  <origin xyz="0.0 0.1 -0.13" rpy="0 0 0"/>
+  <parent link="front_left_steer_v1_1"/>
+  <child link="front_left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid15" type="fixed">
+  <origin xyz="0.91 -0.4 0.55" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_body_1"/>
+</joint>
+
+<joint name="Rigid16" type="fixed">
+  <origin xyz="0.4 0.0 0.7" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="container_1"/>
+</joint>
+
+<joint name="arm_joint" type="continuous">
+  <origin xyz="0.02 0.1 -0.439" rpy="0 0 0"/>
+  <parent link="link1_1"/>
+  <child link="link2_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="gripper_joint" type="continuous">
+  <origin xyz="-0.621 0.255 -0.475" rpy="0 0 0"/>
+  <parent link="link2_1"/>
+  <child link="gripper_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="slider" type="prismatic">
+  <origin xyz="0.55 0.5 1.441" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="link1_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="-0.1" lower="-0.39" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rigid21" type="fixed">
+  <origin xyz="0.0 0.4 0.9" rpy="0 0 0"/>
+  <parent link="front_body_1"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="Rigid22" type="fixed">
+  <origin xyz="0.014495 0.5 0.415" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="Rigid23" type="fixed">
+  <origin xyz="0.40203 0.0 0.505" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_1"/>
+</joint>
+
+</robot>
